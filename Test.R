@@ -1,0 +1,5 @@
+setwd("C:/Users/Nacho/Documents/GitHub/EstDesc_SWIRL_course")
+library(swirl)
+#uninstall_course("EstDesc SWIRL course")
+install_course_zip('My_New_Course.zip')
+swirl()
