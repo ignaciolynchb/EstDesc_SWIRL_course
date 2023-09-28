@@ -1,3 +1,4 @@
+# nacho estuvo aqui
 setwd("C:/Users/Nacho/Documents/GitHub/EstDesc_SWIRL_course")
 
 # Don't forget to load swirlfiy!
