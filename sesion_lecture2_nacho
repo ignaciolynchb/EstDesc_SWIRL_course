@@ -1,0 +1,455 @@
+> uninstall_course("My New Course")
+Course uninstalled successfully!
+
+Restarting R session...
+
+> library(swirl)
+
+| Hi! Type swirl() when you are ready to begin.
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you
+| did then. If you are new, call yourself something unique.
+
+What shall I call you? nacho
+
+| To begin, you must install a course. I can install a course for you from the internet,
+| or I can send you to a web page (https://github.com/swirldev/swirl_courses) which will
+| provide course options and directions for installing courses yourself. (If you are not
+| connected to the internet, type 0 to exit.)
+
+1: R Programming: The basics of programming in R
+2: Regression Models: The basics of regression modeling in R
+3: Statistical Inference: The basics of statistical inference in R
+4: Exploratory Data Analysis: The basics of exploring data in R
+5: Don't install anything for me. I'll do it myself.
+
+Selection: 5
+
+| OK. I'm opening the swirl course respository in your browser.
+
+| Leaving swirl now. Type swirl() to resume.
+
+> install_course_directory('My New Course')  # install_course_zip('My_New_Course.zip')
+
+| Course installation failed.
+
+Warning message:
+In file.copy(path, swirl_courses_dir(), recursive = TRUE) :
+  problem copying ./My New Course to /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/library/swirl/Courses/My New Course: No such file or directory
+> install_course_directory('My_New_Course')  # install_course_zip('My_New_Course.zip')
+
+| Course installed successfully!
+
+> swirl()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you
+| did then. If you are new, call yourself something unique.
+
+What shall I call you? nacho
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: My New Course
+2: Take me to the swirl course repository!
+
+Selection: 1
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+1: Estructuras de Datos
+2: Subconjuntos de Datos
+3: Usando R como una calculadora
+4: Usando R como una calculadora 2
+
+Selection: 1
+  |                                                                               |   0%
+
+| Bienvenido a la segunda lección de este curso, denominada `Estructura de Datos`.
+
+...
+
+  |==                                                                             |   3%
+| Aquí exploraremos los distintos tipos de datos, conociendo los dataframes, vectors,
+| factors y lists.
+
+...
+
+  |====                                                                           |   5%
+| El lenguaje R posee una gran habilidad para manejar datos en forma de tablas,
+| similares a las que puedes ver en planillas de cálculo.
+
+...
+
+  |======                                                                         |   8%
+| Para comenzar, definiremos a los vectores. Un vector en R es una lista ordenada de
+| cosas, donde todos los elementos tienen que ser del mismo tipo de datos básico. Si no
+| eliges un tipo de datos, por defecto R elige el tipo de datos `logical`.
+
+...
+
+  |========                                                                       |  11%
+| Te pediremos que crees un vector, con el operador `:`, del 1 al 16. Debes guardarlo en
+| una variable llamada mi_vector.
+
+> 
+> 1 <- mi_vector
+Error in 1 <- mi_vector : invalid (do_set) left-hand side to assignment
+> mi_vector <- 1
+
+| Almost! Try again. Or, type info() for more options.
+
+| Si quieres crear un vector que contenga los números del 1 al 3, puedes usar c(1, 2, 3)
+| o 1:3. Recuerda que para guardar un objeto utilizamos el operador `<-`.
+
+> mi_vector <- 1:16
+
+| Excellent work!
+
+  |==========                                                                     |  13%
+| Para visualizar el contenido del vector creado, prueba escribir su nombre.
+
+> mi_vector
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
+
+| That's correct!
+
+  |============                                                                   |  16%
+| Un atributo que nos puede interesar es la dimensión del objeto. ¿Cuál crees que es la
+| dimensión del vector creado? Responde la pregunta escribiendo dim(mi_vector).
+
+> dim(mi_vector)
+NULL
+
+| All that practice is paying off!
+
+  |===============                                                                |  18%
+| ¿Te has sorprendido? Los vectores no tienen dimensión, por lo que en este caso será
+| más útil la función length(), que cuenta la cantidad de elementos del objeto. ¿Puedes
+| ponder en práctica la función con mi_vector?
+
+> mi_vector
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
+
+| You're close...I can feel it! Try it again. Or, type info() for more options.
+
+| Escribe length(mi_vector) para ver la cantidad de elementos que contiene.
+
+> length(mi_vector)
+[1] 16
+
+| Keep working like that and you'll get there!
+
+  |=================                                                              |  21%
+| Posee 16 elementos. ¿Cómo convertimos nuestro vector en una matriz de 4 filas y 4
+| columnas? Para ello, debemos asignarle una dimensión. Intenta escribiendo
+| dim(mi_vector) <- c(4, 4).
+
+> dim(mi_vector) <- c(4,4)
+
+| Excellent job!
+
+  |===================                                                            |  24%
+| Miremos ahora el contenido mi_vector.
+
+> mi_vector
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+| All that practice is paying off!
+
+  |=====================                                                          |  26%
+| Con la función class(), podemos ver de qué clase de objeto se trata. Escribe
+| class(mi_vector).
+
+> class(mi_vector)
+[1] "matrix" "array" 
+
+| That's the answer I was looking for.
+
+  |=======================                                                        |  29%
+| Se trata de una matriz, como queríamos. Para no confundirnos, guardemos este objeto
+| bajo el nombre mi_matriz.
+
+> mi_matriz <- mi_vector
+
+| You got it right!
+
+  |=========================                                                      |  32%
+| Sin embargo, hay una forma más sencilla de crear directamente una matriz, sin
+| convertir un vector. Para ello, utilizamos la funcion matrix(). Bastará con escribir
+| matrix(1:16, nrow=4, ncol=4). Crea esta matriz y guardala en mi_matriz2.
+
+> mi_matriz2 <- matrix(1:16, nrow=4, ncol=4)
+
+| Nice work!
+
+  |===========================                                                    |  34%
+| Para confirmar que las dos matrices son iguales, podemos utilizar la función
+| identical(). ¿Puedes comprobarlo?
+
+> identical(mi_matriz1, mi_matriz2)
+Error: object 'mi_matriz1' not found
+> identical(mi_matriz, mi_matriz2)
+[1] TRUE
+
+| That's correct!
+
+  |=============================                                                  |  37%
+| Imagina que ahora queremos tener un cuadro de datos de perros en adopción. Cada fila
+| representará a un canino, mientras que cada columna será un atributo del mismo.
+
+...
+
+  |===============================                                                |  39%
+| Dentro de nuestra matriz, queremos que haya una columna con el nombre de los perros.
+| Comenzemos creando este vector, nombrandolo como nombres_p y sabiendo que son "Lola",
+| "Tito", "Milo", "Dolly". Para ello utilizamos la función c().
+
+> 
+> c("Lola", "Tito", "Milo", "Dolly")
+[1] "Lola"  "Tito"  "Milo"  "Dolly"
+
+| You almost had it, but not quite. Try again. Or, type info() for more options.
+
+| Prueba escribiendo nombres_p <- c("Lola", "Tito", "Milo", "Dolly").
+
+> nombres_p <- c("Lola", "Tito", "Milo", "Dolly")
+
+| Excellent work!
+
+  |=================================                                              |  42%
+| Combinemos ahora la columna de nombres con la matriz que habíamos creado antes,
+| utilizando la función cbind() y los argumentos nombres_p y mi_matriz.
+
+> cbind(nombres_p, mi_matriz)
+     nombres_p                  
+[1,] "Lola"    "1" "5" "9"  "13"
+[2,] "Tito"    "2" "6" "10" "14"
+[3,] "Milo"    "3" "7" "11" "15"
+[4,] "Dolly"   "4" "8" "12" "16"
+
+| You are quite good my friend!
+
+  |===================================                                            |  45%
+| La combinación causó que los números se encuentren entre comillas. Esto significa que
+| es una matriz de caracteres, lo cual no buscamos. Esto sucede debido a que las
+| matrices solo pueden tener una clase de datos, por lo que R ha convertido los números
+| a caracteres. Este proceso se denomina coerción, y por ello aparecen las comillas. Se
+| trata de una coerción implícita, ya que no la hemos solicitado directamente.
+
+...
+
+  |=====================================                                          |  47%
+| Sin embargo, puedo querer realizar una coerción directamente, por ejemplo, pasar los
+| datos de numéricos a caracteres en mi_matriz. Para ello, puedo utilizar la función
+| as.character(). Pruébala, guardando el resultado en mi_matriz_ch.
+
+> mi_matriz_ch <- cbind(nombres_p, mi_matriz)
+
+| Not exactly. Give it another go. Or, type info() for more options.
+
+| Escribe mi_matriz_ch <- as.character(mi_matriz).
+
+> mi_matriz_ch <- as.character(mi_matriz)
+
+| Keep working like that and you'll get there!
+
+  |========================================                                       |  50%
+| Visualizando el objeto mi_matriz_ch, verás que todos los valores son de tipo
+| character. Existen otras funciones, como as_numeric(), as_logical(), as_factor(),
+| entre otras, que se utilizan para realizar coerciones directas. Intenta ver el
+| contenido de mi_matriz_ch.
+
+> mi_matriz_ch
+ [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10" "11" "12" "13" "14" "15" "16"
+
+| You're the best!
+
+  |==========================================                                     |  53%
+| Prueba escribir ahora perros <- data.frame(nombres_p, mi_matriz)
+
+> perros <- data.frame(nombres_p, mi_matriz)
+
+| Nice work!
+
+  |============================================                                   |  55%
+| Queremos visualizar qué hay en el objeto `perros`. Inténtalo.
+
+> perros
+  nombres_p X1 X2 X3 X4
+1      Lola  1  5  9 13
+2      Tito  2  6 10 14
+3      Milo  3  7 11 15
+4     Dolly  4  8 12 16
+
+| All that practice is paying off!
+
+  |==============================================                                 |  58%
+| La función data.frame() nos permitió guardar los datos manteniendo la clase de cada
+| vector. La clase del objeto perros es `data.frame`.
+
+...
+
+  |================================================                               |  61%
+| Es posible asignar nombres a las filas o las columnas de manera individual. Ya hemos
+| nombrado las filas. Debido a que tenemos 5 columnas (las cuatro de la matriz inicial y
+| la de los nombres), debemos primero crear un vector de 5 elementos conteniendo los
+| títulos de las variables (en orden).
+
+...
+
+  |==================================================                             |  63%
+| Crea un vector llamado nombres_col que contenga las siguientes palabras "nombre",
+| "edad", "peso", "color", "sexo".
+
+> 
+> nombres_col <- c("nombre", "edad", "peso", "color", "sexo")
+
+| You got it right!
+
+  |====================================================                           |  66%
+| Utilizaremos la función colnames() para cambiar este atributo de nuestro dataframe.
+| Escribe colnames(perros) <- nombres_col
+
+> colnames(perros) <- nombres_col
+
+| Your dedication is inspiring!
+
+  |======================================================                         |  68%
+| veamos si pudimos construir nuestra matriz deseada. Observa el contenido de `perros`.
+
+> perros
+  nombre edad peso color sexo
+1   Lola    1    5     9   13
+2   Tito    2    6    10   14
+3   Milo    3    7    11   15
+4  Dolly    4    8    12   16
+
+| Your dedication is inspiring!
+
+  |========================================================                       |  71%
+| Para poder acceder al contenido de una columna en específico, utilizamos el operador
+| `$`. Por ejemplo, para visualizar la columna edad, escribe perros$edad.
+
+> perros$edad
+[1] 1 2 3 4
+
+| All that hard work is paying off!
+
+  |==========================================================                     |  74%
+| Sobre las columnas podemos realizar operaciones. ¿Cómo harías para sumarle una unidad
+| a todos los elementos de la columna edad?
+
+> perros$edad*2
+[1] 2 4 6 8
+
+| Not quite right, but keep trying. Or, type info() for more options.
+
+| Para agregarle un año a cada perro, puedes escribir perros$edad + 1.
+
+> perros$edad + 1
+[1] 2 3 4 5
+
+| Your dedication is inspiring!
+
+  |============================================================                   |  76%
+| También podemos sumar columnas entre sí, aunque para ello deben tener el mismo tipo de
+| dato. Hay 5 tipos de datos principales en R, estos son double, integer, complex,
+| logical and character. Para saber la clase de la columna, utilizamos class(), función
+| que ya hemos visto antes.
+
+...
+
+  |==============================================================                 |  79%
+| Otra estructura de datos que te será útil en R serán las listas. Estas pueden contener
+| cualquier tipo de dato.
+
+...
+
+  |================================================================               |  82%
+| Con la función list(), crea una lista que contenga 1, "a", TRUE, 1+4i y guárdala con
+| el nombre mi_lista
+
+> mi_lista <- list(1, 'a', TRUE, 1+4i)
+
+| That's a job well done!
+
+  |===================================================================            |  84%
+| Si visualizas su contenido, notarás que ha almacenado los distintos tipos de datos que
+| le hemos asignado. Escribe mi_lista
+
+> mi_lista
+[[1]]
+[1] 1
+
+[[2]]
+[1] "a"
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] 1+4i
+
+
+| Nice work!
+
+  |=====================================================================          |  87%
+| Un hecho interesante, es que los data_frames son en realidad listas de vectores y
+| factores. Compruébalo con la función typeof() aplicada a perros.
+
+> typeof(perros)
+[1] "list"
+
+| You're the best!
+
+  |=======================================================================        |  89%
+| Hemos hablado de vectores y factores, pero ¿qué es un factor?
+
+...
+
+  |=========================================================================      |  92%
+| Los factores se utilizan para representar información categórica, es decir aquellos
+| datos que pueden organizarse por categorías. En perros, podríamos pensar que el color
+| solo puede ser blanco, negro o amarillo. Creemos un vector para representar el color
+| de nuestros cuatro perros, utilizando color_perros <- c("blanco", "amarillo", "negro",
+| "blanco")
+
+> color_perros <- c("blanco", "amarillo", "negro", "blanco")
+
+| Perseverance, that's the answer.
+
+  |===========================================================================    |  95%
+| El vector creado es de tipo character, pero utilizando la función factor(), lo podemos
+| convertir justamente a un factor. Inténtalo, guardándolo bajo el mismo nombre.
+
+> color_perros <- factor(color_perros)
+
+| You are amazing!
+
+  |=============================================================================  |  97%
+| Con la función str(), podremos ver las categorías que se almacenan en el factor
+| creado. Pruébalo.
+
+> str(color_perros)
+ Factor w/ 3 levels "amarillo","blanco",..: 2 1 3 2
+
+| That's a job well done!
+
+  |===============================================================================| 100%
+| En esta lección has aprendido a trabajar con vectores, matrices, dataframes, listas y
+| factores. Seguiremos profundizando en estos contenidos durante las próximas lecciones.
+
+...
+
+| You've reached the end of this lesson! Returning to the main menu...
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: My New Course
+2: Take me to the swirl course repository!
