@@ -7,7 +7,7 @@
   Version: 1.0.1
 
 - Class: text
-  Output: Bienvenido a la segunda lección de este curso, denominada `Introducción a R`.
+  Output: Bienvenido a la primera lección de este curso, denominada `Introducción a R`.
 
   - Class: text
   Output: Aquí exploraremos sobre escritura en R, operaciones, variables y vectores.
@@ -259,3 +259,7 @@
   CorrectAnswer: install.packages("ggplot2")
   AnswerTests: omnitest(correctExpr='install.packages("ggplot2")')
   Hint: Escribe 'install.packages("ggplot2")'.
+
+- Class: text
+  Output: En esta lección has aprendido a trabajar con la escritura en R, a hacer operaciones, crear variables y vectores. Seguiremos profundizando en estos contenidos durante las próximas lecciones.
+
